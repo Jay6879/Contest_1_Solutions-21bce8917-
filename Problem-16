@@ -1,0 +1,47 @@
+Binary Number with Alternating Bits
+
+class Solution {
+    public boolean hasAlternatingBits(int n) {
+        boolean even = true;
+        if((n&1)==1){
+            even  = false;
+        }
+
+        int i = 0;
+        
+        if(even){
+            while(n>0){
+                if(i%2==0){
+                    if((n&1)!=0){
+                        return false;
+                    }
+                }
+                else{
+                    if((n&1)!=1){
+                        return false;
+                    }
+                }
+                n>>=1;
+                i++;
+            }
+        }
+        else{
+            while(n>0){
+                if(i%2==0){
+                    if((n&1)!=1){
+                        return false;
+                    }
+                }
+                else{
+                    if((n&1)!=0){
+                        return false;
+                    }
+                }
+                n>>=1;
+                i++;
+            }
+        }
+
+        return true;
+    }
+}
