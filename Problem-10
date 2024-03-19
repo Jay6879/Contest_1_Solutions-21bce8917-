@@ -1,0 +1,25 @@
+Product array puzzle
+
+class Solution 
+{ 
+	public static long[] productExceptSelf(int nums[], int n) 
+	{ 
+        // code here
+        long[] arr = new long[n];
+        
+        for(int i=0;i<nums.length;i++){
+            long pdt = 1;
+            for(int j=0;j<nums.length;j++){
+                if(i==j){
+                    continue;
+                }
+                
+                pdt *= nums[j];
+            }
+            
+            arr[i] = pdt;
+        }
+        
+        return arr;
+	} 
+} 
